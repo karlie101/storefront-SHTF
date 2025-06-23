@@ -1,0 +1,237 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* PROMO BANNER */
+.promo-banner {
+  background-color: #4e342e;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* NAVIGATION */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2e2b28;
+  padding: 15px 30px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #c5a880;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #c5a880;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 60px 30px;
+  background: linear-gradient(to right, #2e2b28, #1a1a1a);
+  align-items: center;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-text h2 {
+  font-size: 16px;
+  color: #c5a880;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  margin: 10px 0;
+}
+
+.hero-text h1 span {
+  font-style: italic;
+  color: #d7ccc8;
+}
+
+.hero-btn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #c5a880;
+  color: #1a1a1a;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.hero-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+/* SECTIONS */
+.store-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.store-section h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.store-section p {
+  margin-bottom: 30px;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  width: 250px;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.btn {
+  display: inline-block;
+  margin: 5px;
+  padding: 8px 14px;
+  background-color: #c5a880;
+  color: #000;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* CUSTOM SECTION COLORS */
+.books { background-color: #3b4b3f; }
+.guides { background-color: #944e30; }
+.gear { background-color: #444444; }
+.seeds { background-color: #2f4f4f; }
+.garden { background-color: #4e4e3b; }
+.logos { background-color: #553939; }
+.sarcasm { background-color: #3e5f47; }
+.tshirts { background-color: #1f1f1f; }
+.mugs { background-color: #a0522d; }
+.backpack { background-color: #4b5320; }
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #1a1a1a;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+  .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* Cart Modal Styles */
+.cart-modal {
+  position: fixed;
+  top: 20%;
+  right: 20px;
+  background-color: #2a2a2a;
+  border: 1px solid #c5a880;
+  padding: 20px;
+  color: #fff;
+  width: 300px;
+  display: none;
+  z-index: 1000;
+}
+
+.cart-modal h4 {
+  margin-bottom: 10px;
+}
+
+.cart-modal ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-modal ul li {
+  margin: 5px 0;
+}
+
+.cart-modal .total {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.close-cart {
+  cursor: pointer;
+  float: right;
+  font-size: 18px;
+}

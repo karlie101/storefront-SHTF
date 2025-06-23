@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Luxe Camo Collection</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="script.js"></script>
+  <style>
+    .cart-modal {
+      position: fixed;
+      top: 20%;
+      right: 20px;
+      background-color: #2a2a2a;
+      border: 1px solid #c5a880;
+      padding: 20px;
+      color: #fff;
+      width: 300px;
+      display: none;
+      z-index: 1000;
+    }
+    .cart-modal h4 {
+      margin-bottom: 10px;
+    }
+    .cart-modal ul {
+      list-style: none;
+      padding: 0;
+    }
+    .cart-modal ul li {
+      margin: 5px 0;
+    }
+    .cart-modal .total {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .close-cart {
+      cursor: pointer;
+      float: right;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="promo-banner">
+    <p><strong>15% OFF SITEWIDE</strong> — Use code <strong>CAMO15</strong></p>
+  </div>
+
+  <nav class="navbar">
+    <div class="logo">LuxeCamo</div>
+    <ul class="nav-links">
+      <li><a href="#">Shop All</a></li>
+      <li><a href="#">Books</a></li>
+      <li><a href="#">Gear</a></li>
+      <li><a href="#">T-Shirts</a></li>
+      <li><a href="#">Backpacks</a></li>
+      <li><a href="#" id="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>New Drop</h2>
+      <h1><span>Camo</span> Collection</h1>
+      <p>10 exclusive sections. Survival. Sass. Style.</p>
+      <a href="#" class="hero-btn">Shop Now</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://placehold.co/400x400?text=Hero+Image" alt="Hero">
+    </div>
+  </section>
+
+  <main>
+    <!-- Start Section Template -->
+    <!-- Each section has different themes and products with mock images -->
+    <script>
+      const sections = [
+        "Books", "Guides", "Gear", "Seeds", "Gardening Designs", "Team Logos", "Sarcasm is a Gift", "T-Shirts", "Mugs", "Backpack"
+      ];
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const main = document.querySelector("main");
+        sections.forEach((section, idx) => {
+          const sectionEl = document.createElement("section");
+          sectionEl.className = `store-section section-${idx}`;
+          sectionEl.innerHTML = `
+            <h2>${section}</h2>
+            <p>Discover the best of ${section.toLowerCase()} in survival and style.</p>
+            <div class="product-grid">
+              <div class="product-card">
+                <img src="https://placehold.co/250x250?text=${section.replace(/\s/g,'+')}+1" alt="${section} 1">
+                <h3>${section} Item 1</h3>
+                <button class="btn" onclick="addToCart('${section} Item 1', 20)">Add to Cart</button>
+                <a href="#" class="btn">Amazon</a>
+                <a href="#" class="btn">PayPal</a>
+              </div>
+              <div class="product-card">
+                <img src="https://placehold.co/250x250?text=${section.replace(/\s/g,'+')}+2" alt="${section} 2">
+                <h3>${section} Item 2</h3>
+                <button class="btn" onclick="addToCart('${section} Item 2', 25)">Add to Cart</button>
+                <a href="#" class="btn">Shopify</a>
+                <a href="#" class="btn">PayPal</a>
+              </div>
+              <div class="product-card">
+                <img src="https://placehold.co/250x250?text=${section.replace(/\s/g,'+')}+3" alt="${section} 3">
+                <h3>${section} Item 3</h3>
+                <button class="btn" onclick="addToCart('${section} Item 3', 30)">Add to Cart</button>
+                <a href="#" class="btn">Amazon</a>
+                <a href="#" class="btn">Cash App</a>
+              </div>
+            </div>
+          `;
+          main.appendChild(sectionEl);
+        });
+      });
+    </script>
+  </main>
+
+  <div class="cart-modal" id="cart-modal">
+    <span class="close-cart" onclick="toggleCart()">&times;</span>
+    <h4>Your Cart</h4>
+    <ul id="cart-items"></ul>
+    <div class="total">Total: $<span id="cart-total">0</span></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 LuxeCamo Co. Built to Last. Styled to Flex.</p>
+  </footer>
+
+  <script>
+    let cart = [];
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCart();
+    }
+
+    function updateCart() {
+      document.getElementById("cart-count").textContent = cart.length;
+      const cartItems = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+      cartItems.innerHTML = "";
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price;
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - $${item.price}`;
+        cartItems.appendChild(li);
+      });
+      cartTotal.textContent = total.toFixed(2);
+    }
+
+    function toggleCart() {
+      const modal = document.getElementById("cart-modal");
+      modal.style.display = modal.style.display === "block" ? "none" : "block";
+    }
+
+    document.getElementById("cart-btn").addEventListener("click", function(e) {
+      e.preventDefault();
+      toggleCart();
+    });
+  </script>
+</body>
+</html>
